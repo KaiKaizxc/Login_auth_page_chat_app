@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Login = () => {
   return (
@@ -13,7 +14,11 @@ const Login = () => {
                 <input type = "password" placeholder = "password" required/>
                 <button>Sign In</button>
             </form>
-            <p>You don't have an account? Register</p>
+            <p>You don't have an account? 
+              <Link href = "/Register">
+              Register
+              </Link>
+            </p>
         </div>
     </div>
   )
