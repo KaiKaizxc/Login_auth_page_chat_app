@@ -117,6 +117,7 @@
             position: relative;
 
             .navbar {
+                box-sizing: content-box;
                 display: flex;
                 align-items:  center;
                 background-color: #2f2d52;
@@ -135,6 +136,20 @@
                 .user {
                     display: flex;
                     gap: 10px;
+                    align-items: center;
+                    color: lightgrey;
+                    button {
+                        height: 40px;
+                        width: 50px;
+                        font-size: 12px;
+                        border-radius: 5px;
+                        
+                    }
+
+                    .imageWrapper {
+                        border-radius: 50%;
+                        overflow: hidden;
+                    }
                 }
 
                 button {

@@ -121,7 +121,7 @@ const Register = () => {
                 {error && <span>Error occured</span>}
 
             </form>
-            <p>You do have an account? Login</p>
+            <p>You do have an account? <Link href = "/Login">Login</Link></p>
         </div>
     </div>
   )

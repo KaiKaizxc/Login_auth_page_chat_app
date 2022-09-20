@@ -3,6 +3,7 @@ import { createContext, useEffect } from "react";
 import { auth } from "../firebase";
 
 import { useState } from "react";
+import { unstable_renderSubtreeIntoContainer } from "react-dom";
 
 
 
@@ -11,16 +12,23 @@ export const AuthContext = createContext();
 
 export const AuthContextProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState({});
-    console.log("ran");
+    console.log("ran provider");
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsub = onAuthStateChanged(auth, (user) => {
             setCurrentUser(user);
-            console.log(user);
-        })
+            console.log(user, "AuthContext ran");
+        });
+
+        unsub();
     }, []);
 
-    <AuthContext.Provider value = {currentUser}>
-        {children}
-    </AuthContext.Provider>
+    return (
+        <AuthContext.Provider value = {currentUser}>
+            {children}
+        </AuthContext.Provider>
+
+    )
+
+
 }
